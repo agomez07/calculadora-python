@@ -8,30 +8,30 @@ def multiplicar(num1, num2):
     return num1 * num2
 
 def dividir(num1, num2):
-    if num2 == 0:
-        print("Error: División por cero no permitida.")
-        return None    
     return num1 / num2  
 
-def promedio():
-    notas = []
+def promedio(notas):
+    return sum(notas) / len(notas)
+
+def calcular_promedio():
+    lista_notas = []
     while True:
         try:
             nota = float(input("Ingresa una nota // Ingresa (-1) para finalizar: "))
 
             if nota == -1:
                 break
-            notas.append(nota)
+            lista_notas.append(nota)
 
         except ValueError:
             print("Entrada inválida, ingresa un valor numérico.")
 
-    if not notas:
+    if not lista_notas:
         print("No se han ingresado notas.")
             
-    else:   
-        prom = sum(notas) / len(notas)
-        print(f"Promedio: {prom:.2f}")
+    else:
+        resultado = promedio(lista_notas)
+        print(f"Promedio: {resultado:.2f}")
 
 def menu():
     print("--------------------------------------")
@@ -55,7 +55,7 @@ def main():
             print("Error: Por favor, ingresa un número válido.")
             continue
 
-        if 1<= opcion <= 4:
+        if 1 <= opcion <= 4:
 
             try:
                 num1 = float(input("Ingresa el primer número: "))
@@ -82,14 +82,18 @@ def main():
 
             elif opcion == 4:
                 print("\n ----DIVISIÓN----")
-                resultado = dividir(num1, num2)
+                try:
+                    resultado = dividir(num1, num2)
+                    print(f"Resultado: {resultado:.2f}")
 
-                if resultado is not None:
-                    print(f"Resultado: {resultado:.2f}") 
+                except ZeroDivisionError:
+                    print("Error: División por cero no permitida.")
+
+               
 
         elif opcion == 5:
             print("----------\n PROMEDIO\n----------")
-            promedio()
+            calcular_promedio()
 
         elif opcion == 6:
             print("Cerrando la calculadora...")
