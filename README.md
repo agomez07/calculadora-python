@@ -9,6 +9,7 @@ Mi primera calculadora hecha en Python.
 * Multiplicación
 * División
 * Promedio de notas
+* Historial de Operaciones
 
 ## Sobre el proyecto
 
