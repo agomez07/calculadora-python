@@ -1,3 +1,8 @@
+import os
+
+def limpiar_pantalla():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
 def sumar(num1, num2):
     return num1 + num2
     
@@ -32,7 +37,6 @@ def calcular_promedio():
         return None
             
     resultado = promedio(lista_notas)
-    print(f"Promedio: {resultado:.2f}")
     return resultado
 
 def mostrar_historial(historial):
@@ -42,6 +46,10 @@ def mostrar_historial(historial):
 
     for operacion in historial:
         print(operacion)
+
+def mostrar_resultado(resultado):
+    print(f"Resultado: {resultado}")
+    
 
 def menu():
     print("--------------------------------------")
@@ -56,6 +64,7 @@ def menu():
     print("7. SALIR")
 
 def main():
+    limpiar_pantalla()
     historial_operaciones = []
     while True:
         menu()
@@ -80,19 +89,19 @@ def main():
             if opcion == 1:
                 print("\n ----SUMA----")
                 resultado = sumar(num1, num2)
-                print(f"Resultado: {resultado}")
+                mostrar_resultado(resultado)
                 historial_operaciones.append(f"Suma: {num1} + {num2} = {resultado}")
     
             elif opcion == 2:
                 print("\n ----RESTA----")
                 resultado = restar(num1, num2)
-                print(f"Resultado: {resultado}")
+                mostrar_resultado(resultado)
                 historial_operaciones.append(f"Resta: {num1} - {num2} = {resultado}")
 
             elif opcion == 3:
                 print("\n ----MULTIPLICACIÓN----")
                 resultado = multiplicar(num1, num2)
-                print(f"Resultado: {resultado}")
+                mostrar_resultado(resultado)
                 historial_operaciones.append(f"Multiplicación: {num1} * {num2} = {resultado}")
 
             elif opcion == 4:
@@ -112,6 +121,7 @@ def main():
             resultado = calcular_promedio()
 
             if resultado is not None:
+                print(f"Promedio: {resultado:.2f}")
                 historial_operaciones.append(f"Promedio: {resultado:.2f}")
 
         elif opcion == 6:
