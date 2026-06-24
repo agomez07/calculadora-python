@@ -35,13 +35,14 @@ def calcular_promedio():
     if not lista_notas:
         print("No se han ingresado notas.")
         return None
-            
-    resultado = promedio(lista_notas)
+    
+    prom = promedio(lista_notas)
+    resultado = (f"Promedio | Notas: {lista_notas} = {prom:.2f}")
     return resultado
 
 def mostrar_historial(historial):
     if not historial:
-        print("No hay operaciones en el historial.")
+        print("Historial vacio.")
         return
 
     for operacion in historial:
@@ -49,6 +50,17 @@ def mostrar_historial(historial):
 
 def mostrar_resultado(resultado):
     print(f"Resultado: {resultado}")
+
+def borrar_historial(historial):
+    if not historial:
+        print("No hay operaciones.")
+        return
+
+    historial.clear()
+    print("Historial borrado.")
+
+
+    
     
 
 def menu():
@@ -61,7 +73,8 @@ def menu():
     print("4. DIVISIÓN")
     print("5. PROMEDIO")
     print("6. HISTORIAL DE OPERACIONES")
-    print("7. SALIR")
+    print("7. BORRAR HISTORIAL DE OPERACIONES")
+    print("8. SALIR")
 
 def main():
     limpiar_pantalla()
@@ -121,20 +134,24 @@ def main():
             resultado = calcular_promedio()
 
             if resultado is not None:
-                print(f"Promedio: {resultado:.2f}")
-                historial_operaciones.append(f"Promedio: {resultado:.2f}")
+                print(resultado)
+                historial_operaciones.append(resultado)
 
         elif opcion == 6:
             print("----------\n HISTORIAL DE OPERACIONES\n----------")
             mostrar_historial(historial_operaciones)
 
         elif opcion == 7:
+            print("----------\n BORRAR HISTORIAL DE OPERACIONES\n----------")
+            borrar_historial(historial_operaciones)
+        
+        elif opcion == 8:
             print("Cerrando la calculadora...")
             print("¡Hasta luego!")
             break
 
         else:
-            print("Opción no válida. Por favor, selecciona una opción del 1 al 7.")
+            print("Opción no válida. Por favor, selecciona una opción del 1 al 8.")
 
 if __name__ == "__main__":
     main()

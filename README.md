@@ -4,12 +4,13 @@ Mi primera calculadora hecha en Python.
 
 ## Funciones actuales
 
-* Suma
-* Resta
-* Multiplicación
-* División
-* Promedio de notas
-* Historial de Operaciones
+* Suma.
+* Resta.
+* Multiplicación.
+* División.
+* Promedio de notas.
+* Historial de operaciones.
+* Borrar historial de operaciones.
 
 ## Sobre el proyecto
 
